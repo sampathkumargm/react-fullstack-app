@@ -9,16 +9,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/api/sundaysky", (req, res) => {
+  const firstName = req.query.first_name;
+  const accountType = req.query.acct_type;
+  const crbKeyID = req.query.crb_key_id;
+
   axios({
     method: "post",
     url: "https://demo.web.sundaysky-sandbox.com/create_video_session",
-    // data: {
-    //   data: {
-    //     first_name: "Scarlett",
-    //     acct_type: "Checking",
-    //     crb_key_id: "123456",
-    //   },
-    // },
+    data: {
+      data: {
+        first_name: firstName,
+        acct_type: accountType,
+        crb_key_id: crbKeyID,
+      },
+    },
   })
     .then((response) => {
       console.log(`API response log: ${response.data}`);

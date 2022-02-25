@@ -15,7 +15,7 @@ const SundaySkyVideoPlayer = () => {
       const result = await axios({
         method: "get",
         url: `/api/sundaysky?first_name=${firstName}&acct_type=${acctType}&crb_key_id=${crbKeyId}`,
-        // data: {
+        // params: {
         //   data: {
         //     first_name: firstName,
         //     acct_type: acctType,
